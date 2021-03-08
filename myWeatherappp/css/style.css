@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.wrap {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(47, 212, 144, 0.1),
+    rgba(244, 247, 103, 0.9)
+  );
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input {
+  margin-top: 10vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.input input {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: auto;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: 16px 0px 16px 0px;
+  transition: all 0.5s;
+  border-bottom: 2px solid rgba(47, 212, 144);
+}
+.input input:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0px 16px 0px 16px;
+}
+.input .fas {
+  color: rgb(70, 104, 90);
+  margin-left: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.input .fas:hover {
+  color: rgba(70, 104, 90, 0.5);
+}
+/* Weather Container */
+.weather-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+.weather-container .bozeman,
+.belgrade,
+.chicago,
+.app-wrap {
+  height: 500px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+}
+.weather-container .location {
+  z-index: 2;
+}
+.weather-container .current {
+  z-index: 2;
+  text-shadow: 0px 3px rgba(255, 255, 255, 0.4);
+}
+.weather-container .location .city-bozeman,
+.city-belgrade,
+.city-chicago,
+.city {
+  margin-bottom: 5px;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.weather-container .current .temp-bozeman,
+.temp-belgrade,
+.temp-chicago,
+.temp {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.weather-container .current .weather-bozeman,
+.weather-belgrade,
+.weather-chicago,
+.weather {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.4);
+}
+.weather-container .current .hi-low-bozeman,
+.hi-low-belgrade,
+.hi-low-chicago {
+  font-style: italic;
+  font-weight: 700;
+}
+.weather-container .bozeman {
+  border-radius: 0 0 0 20px;
+  background: url("../img/bozeman.jpg") no-repeat center center/cover;
+  position: relative;
+}
+.weather-container .bozeman::after {
+  background: rgba(40, 216, 216, 0.4);
+  border-radius: 0 0 0 20px;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+}
+.weather-container .chicago {
+  border-radius: 0 20px 0 0;
+  background: url("../img/chicago.jpg") no-repeat center center/cover;
+  position: relative;
+}
+.weather-container .chicago::after {
+  background: rgba(216, 198, 40, 0.4);
+  border-radius: 0 20px 0 0;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+}
+.weather-container .belgrade {
+  background: url("../img/belgrade.jpg") no-repeat center center/cover;
+  position: relative;
+}
+.weather-container .belgrade::after {
+  background: rgba(46, 216, 40, 0.4);
+  border-radius: 0 20px 0 0;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+}
+.app-wrap {
+  position: relative;
+  border-radius: 16px;
+  margin: 10px 0 30px 0;
+  display: flex;
+  justify-content: space-evenly;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.new-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.btn {
+  background-color: rgba(82, 99, 92, 0.4);
+  font-size: 1.5rem;
+  outline: none;
+  border-radius: 16px 0px 16px 0px;
+  padding: 5px 10px;
+  color: #fff;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.btn:hover {
+  border-radius: 0px 16px 0px 16px;
+}
+footer {
+  border-top: 2px solid rgb(25, 105, 72);
+  font-style: italic;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  color: rgb(25, 105, 72);
+  background-color: rgba(244, 247, 103, 0.9);
+}
+.new-footer {
+  background-color: #fff;
+  color: #000;
+  border-top: 2px solid #000;
+}
+.clouds {
+  background: url("https://media.giphy.com/media/SnI9JZGHU9vb2/giphy.gif")
+    no-repeat center center/cover;
+}
+.clear {
+  background: url("https://media.giphy.com/media/G1T5M0qT6ZJlu/giphy.gif")
+    no-repeat center center/cover;
+}
+.snow {
+  background: url("https://media.giphy.com/media/FoVi0LDjy1XS8/giphy.gif")
+    no-repeat center center/cover;
+}
+.rain {
+  background: url("https://media.giphy.com/media/t7Qb8655Z1VfBGr5XB/giphy.gif")
+    no-repeat center center/cover;
+}
+.thunderstorm {
+  background: url("https://media.giphy.com/media/8xY1YYpEZ4dws/giphy.gif")
+    no-repeat center center/cover;
+}
+.drizzle {
+  background: url("https://media.giphy.com/media/l0MYA3MCAcSXocTRe/giphy.gif")
+    no-repeat center center/cover;
+}
+.else {
+  background: url("https://media.giphy.com/media/AIGF7ljcNKZI4/giphy.gif")
+    no-repeat center center/cover;
+}
+@media (max-width: 1200px) {
+  .weather-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weather-container .chicago,
+  .weather-container .belgrade,
+  .weather-container .bozeman {
+    border-radius: 0;
+  }
+  .weather-container .chicago::after,
+  .weather-container .belgrade::after,
+  .weather-container .bozeman::after {
+    border-radius: 0;
+  }
+}
+@media (max-width: 800px) {
+  .weather-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .input input {
+    width: 300px;
+  }
+}
